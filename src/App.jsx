@@ -1,5 +1,6 @@
 import React from 'react';
 import errorData from './error';
+import LoginForm from './components/LoginForm';
 import './assets/styles/login.css';
 
 export default class App extends React.Component {
@@ -16,7 +17,7 @@ export default class App extends React.Component {
   return (
     <div className='login-pare'>
       <div className='login-main-box'>
-
+        <LoginForm />
       </div>
     </div>
   );
