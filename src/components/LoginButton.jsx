@@ -2,9 +2,9 @@
 import React from 'react'
 import Button from '@mui/material/Button';
 
-const LoginId = () => {
+const DefaultButton = (props) => {
   return (
-    <Button variant="outlined">LogIn</Button>
+    <Button variant="outlined">{props.loginbutton}</Button>
   )
 }
-export default LoginId
+export default DefaultButton

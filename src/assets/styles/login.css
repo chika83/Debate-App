@@ -9,12 +9,12 @@
 
 .login-main-box{
   width: 80%;
-  height: 60vh;
+  height: 57vh;
   border: solid 1px;
   background-color: #4300a5b5;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .login-form{
