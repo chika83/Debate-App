@@ -1,25 +1,25 @@
 import React from 'react';
-import errorData from './error';
+// import errorData from './error';
 import './assets/styles/login.css';
-import LoginFormBox from './components/LoginFormBox';
+// import LoginFormBox from './components/Login/LoginFormBox';
+import CreateUser from './components/Register/CreateUser';
 
-export default class App extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      id:[],
-      pass:[],
-      sample:{smple:"sample表示",second:"2番目"},
-      error:errorData,
-      // initError:"入力してください",
-      // idError:errorData[0],
-      // passError:passError,
-      form:""
-    }
-  }
+// export default class App extends React.Component {
+//   constructor(props){
+//     super(props);
+//     this.state = {
+//       id:[],
+//       pass:[],
+//       myid:"myid",
+//       mypass:"mypass",
+//       error:errorData,
+//       form:"xxx"
+//     }
+//     // this.gologin = this.gologin.bind(this)
+//   }
 
-  // initForm = () => {
-  //   const initForm = this.state.form;
+  // loginBool = () => {
+  //   const loginbool = this.state.form;
 
   //   this.setState({
   //     initForm
@@ -28,24 +28,35 @@ export default class App extends React.Component {
   // componentDidMount() {
   //   this.initForm()
   // }
-  initError = () => {
-    const initErrorSet = this.state.error[this.state.initError];
-    //const initError = "initerror";
-    this.setState({
-      error:initErrorSet
-    })
-  }
-  componentDidMount() {
-    this.initError()
-  }
 
-  render (){
-    return (
-      <div className='login-pare'>
-        <div className='login-main-box'>
-          <LoginFormBox errors={this.state.error}/>
-        </div>
-      </div>
-    );
- }
+  // initError = () => {
+  //   const initErrorSet = this.state.error[this.state.errorData];
+  //   //const initError = "initerror";
+  //   this.setState({
+  //     error:initErrorSet
+  //   })
+  // }
+  // componentDidMount() {
+  //   this.initError()
+  // }
+
+//   render (){
+//     return (
+//       <div className='login-pare'>
+//         <div className='login-main-box'>
+//           <LoginFormBox errors={this.state.error} isError={this.state.myid} gologin={this.gologin} />
+//         </div>
+//       </div>
+//     );
+//  }
+// render(){
+
+// }
+// }
+function App() {
+  return (
+    <CreateUser />
+  )
 }
+
+export default App;

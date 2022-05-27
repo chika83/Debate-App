@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 
 const DefaultButton = (props) => {
   return (
-    <Button variant="outlined">{props.loginbutton}</Button>
+    <Button variant="outlined" onClick={() => props.gologin(props.isBool)}></Button>
   )
 }
 export default DefaultButton
