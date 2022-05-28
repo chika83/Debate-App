@@ -1,18 +1,20 @@
 // firebase v9 auth, SignUp sample
 import React from 'react';
+//import firebase from 'firebase';
 import { useState } from 'react';
-import {auth} from '../../firebase';
+import { auth } from '../../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 
-const CreateUser = () => {
-  const [ email, setEmail] = useState('');
-  const [ pass, setPass] = useState('');
+const Register = () => {
+  let [ email, setEmail] = useState('');
+  let [ pass, setPass] = useState('');
   // const auth = getAuth();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { email, pass} = event.target.elements;
-    createUserWithEmailAndPassword(auth, email.value ,pass.value);
+    //  const { email, pass} = event.target.elements;
+     auth.createUserWithEmailAndPassword(email,pass)
+    .then(console.log(email,pass));
   }
   const ChangeEmail = (event) => {
     setEmail(event.currentTarget.value);
@@ -40,11 +42,11 @@ const CreateUser = () => {
                  onChange={(event) => ChangePass(event)} />
         </div>
         <div>
-          <button>登録</button>
+          <button type="">登録</button>
         </div>
       </form>
     </div>
   )
 }
 
-export default CreateUser;
+export default Register;
