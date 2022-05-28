@@ -2,7 +2,7 @@ import React from 'react';
 // import errorData from './error';
 import './assets/styles/login.css';
 // import LoginFormBox from './components/Login/LoginFormBox';
-import CreateUser from './components/Register/CreateUser';
+import Register from './components/Register/CreateUser';
 
 // export default class App extends React.Component {
 //   constructor(props){
@@ -53,10 +53,10 @@ import CreateUser from './components/Register/CreateUser';
 
 // }
 // }
-function App() {
+function debateApp() {
   return (
-    <CreateUser />
+    <Register />
   )
 }
 
-export default App;
+export default debateApp;
