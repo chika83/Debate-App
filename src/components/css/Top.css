@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+.content-wrapper{
+  width: 100%;
+  height: 90vh;
+  background-color: blueviolet;
+}
+.top-inner{
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: gray;
+  padding: 15px;
+}
+
+/* sideber */
+.sideber{
+  width: 23%;
+  background-color: blueviolet;
+  border: solid 5px white;
+}
+.sideber-title{
+  color: white;
+  font-size: 1.5rem;
+}
+
+/* main-content */
+.main-content{
+  width: 75%;
+  background-color: blueviolet;
+  border: solid 5px white;
+}
+.main-title{
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.agenda-wrapper{
+  width: 90%;
+  margin: 0 auto;
+}
+.agenda-wrap{
+  background-color: aliceblue;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.agenda-left{
+  width: 30%;
+  height: 100%;
+  text-align: center;
+}
+.agenda-title{
+  border: solid 2px plum;
+  padding: 30px;
+}
+.agenda-totalling{
+  height: 30px;
+  border: solid 2px plum;
+  padding: 15px;
+}
+.agenda-totalling p{
+  line-height: 1px;
+}
+
+.agenda-post{
+  position: relative;
+  width: 70%;
+  border: solid 2px plum;
+  padding: 5px;
+  font-size: 1rem;
+}
+.agenda-text{
+  padding: 20px;
+}
+.text-time{
+  position: absolute;
+  right: 2px;
+  bottom: 5px;
+  font-size: 0.75rem;
+}
