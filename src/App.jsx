@@ -2,7 +2,8 @@ import React from 'react';
 // import errorData from './error';
 import './assets/styles/login.css';
 // import LoginFormBox from './components/Login/LoginFormBox';
-import Register from './components/Register/CreateUser';
+//import Register from './components/Register/CreateUser';
+import Copyright from './components/Register/sample';
 
 // export default class App extends React.Component {
 //   constructor(props){
@@ -55,7 +56,8 @@ import Register from './components/Register/CreateUser';
 // }
 function debateApp() {
   return (
-    <Register />
+    //<Register />
+    <Copyright />
   )
 }
 
