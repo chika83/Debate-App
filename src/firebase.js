@@ -1,20 +1,26 @@
-import { initializeApp } from 'firebase/app';
+// import { initializeApp } from 'firebase/app';
 // import { getAuth } from 'firebase/auth'
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import firebase from 'firebase/compat/app';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDimeEucPicQplu4LTgwRMK9bofngriMmU",
-    authDomain: "debate-app-6b277.firebaseapp.com",
-    databaseURL: "https://debate-app-6b277-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "debate-app-6b277",
-    storageBucket: "debate-app-6b277.appspot.com",
-    messagingSenderId: "450455773050",
-    appId: "1:450455773050:web:33eff915b5e779856fc0c3",
-    measurementId: "G-B33FV2Y02Q"
-  };
+  apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
+  authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGE_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID
+};
 
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-export default auth
+// firebase.initializeApp(firebaseConfig);
+// const auth = firebase.auth();
+// export default auth
+
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+export const db = firebaseApp.firestore();
+export const auth = firebase.auth();
+export const storage = firebase.storage();
+export const provider = new firebase.auth.GoogleAuthProvider();
