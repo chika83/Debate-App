@@ -1,11 +1,11 @@
-// import { initializeApp } from 'firebase/app';
+import { initializeApp } from 'firebase/app';
 // import { getAuth } from 'firebase/auth'
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import firebase from 'firebase/compat/app';
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
   databaseURL: process.env.REACT_APP_FIREBASE_DATABASE,
   projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
