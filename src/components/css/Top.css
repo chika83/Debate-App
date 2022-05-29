@@ -55,6 +55,11 @@
   border: solid 2px plum;
   padding: 30px;
 }
+.agenda-left a{
+  display: block;
+  height: 100%;
+  width: 100%;
+}
 .agenda-totalling{
   height: 30px;
   border: solid 2px plum;
@@ -73,6 +78,11 @@
 }
 .agenda-text{
   padding: 20px;
+}
+.agenda-post a{
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 .text-time{
   position: absolute;
