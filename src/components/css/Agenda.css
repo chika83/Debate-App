@@ -21,6 +21,16 @@
   width: 100%;
   margin-bottom: 30px;
 }
+.Agenda_textarea{
+  resize: none;
+  height: 150px;
+  width: 100%;
+  background-color: white;
+  border: solid 1px;
+  margin-bottom: 30px;
+  padding: 5px;
+  text-align: left;
+}
 .Agenda_button{
   background-color: white;
 }

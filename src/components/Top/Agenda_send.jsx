@@ -5,19 +5,22 @@ import firebase from 'firebase/compat/app';
 
 const Agenda_send = () => {
 
-  const [AgendaMsg, setAgendaMsg] = useState("");
+  const [AgendaTitle, setAgendaTitle] = useState("");
+  const [AgendaText, setAgendaText] = useState("");
 
   const sendAgenda = (e) => {
     e.preventDefault();
 
     db.collection("Agenda").add({
-      text:AgendaMsg,
+      title:AgendaTitle,
+      text:AgendaText,
       timestamp:firebase.firestore.FieldValue.serverTimestamp(),
       // username:user.displayName,
       username:"test",
     })
 
-    setAgendaMsg("");
+    setAgendaTitle("");
+    setAgendaText("");
   }
 
   return (
@@ -28,13 +31,26 @@ const Agenda_send = () => {
           <input
             className="Agenda_input"
             type="text"
-            value={AgendaMsg}
-            onChange={(e)=>setAgendaMsg(e.target.value)}
+            value={AgendaTitle}
+            onChange={(e) => setAgendaTitle(e.target.value)}
+            required
             />
+        </div>
+        <div className="Agenda_form">
+          <label>詳細を記入</label>
+          <textarea
+            className="Agenda_textarea"
+            type="text"
+            value={AgendaText}
+            onChange={(e) => setAgendaText(e.target.value)}
+            required
+            maxLength="100"
+            placeholder='100文字以内'
+          />
         </div>
         <button
           type="submit"
-          disabled={!AgendaMsg}
+          disabled={!AgendaTitle}
           className="Agenda_button"
           >
           投稿
