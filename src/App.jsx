@@ -1,64 +1,15 @@
-import React from 'react';
-// import errorData from './error';
-import './assets/styles/login.css';
-// import LoginFormBox from './components/Login/LoginFormBox';
-//import Register from './components/Register/CreateUser';
-import Copyright from './components/Register/sample';
+import React, { useState, useEffect } from 'react';
+import TopPage from './components/Top/TopPage';
+import styles from "./components/css/destyle.css";
 
-// export default class App extends React.Component {
-//   constructor(props){
-//     super(props);
-//     this.state = {
-//       id:[],
-//       pass:[],
-//       myid:"myid",
-//       mypass:"mypass",
-//       error:errorData,
-//       form:"xxx"
-//     }
-//     // this.gologin = this.gologin.bind(this)
-//   }
+function App() {
 
-  // loginBool = () => {
-  //   const loginbool = this.state.form;
-
-  //   this.setState({
-  //     initForm
-  //   })
-  // }
-  // componentDidMount() {
-  //   this.initForm()
-  // }
-
-  // initError = () => {
-  //   const initErrorSet = this.state.error[this.state.errorData];
-  //   //const initError = "initerror";
-  //   this.setState({
-  //     error:initErrorSet
-  //   })
-  // }
-  // componentDidMount() {
-  //   this.initError()
-  // }
-
-//   render (){
-//     return (
-//       <div className='login-pare'>
-//         <div className='login-main-box'>
-//           <LoginFormBox errors={this.state.error} isError={this.state.myid} gologin={this.gologin} />
-//         </div>
-//       </div>
-//     );
-//  }
-// render(){
-
-// }
-// }
-function debateApp() {
   return (
-    //<Register />
-    <Copyright />
+    <div className="App">
+      <div className="header">ヘッダー</div>
+      <TopPage />
+    </div>
   )
 }
 
-export default debateApp;
+export default App;
