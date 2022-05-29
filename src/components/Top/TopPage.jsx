@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from "../css/Top.css";
+import Agenda_send from './Agenda_send';
 
 const TopPage = () => {
   return (
@@ -7,6 +8,7 @@ const TopPage = () => {
       <div className="top-inner">
         <div className="sideber">
           <h2 className="sideber-title">ここはサイドバーです。</h2>
+          <Agenda_send />
         </div>
         <div className="main-content">
           <h2 className="main-title">メインコンテンツ</h2>
