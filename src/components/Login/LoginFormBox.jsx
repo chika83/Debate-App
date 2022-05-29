@@ -3,7 +3,7 @@ import DefaultButton from './DefaultButton';
 import DefaultForm from './DefaultForm';
 import FormBool from './FormBool';
 
-const LoginFormBox = (props) => {
+const Login = (props) => {
    //const { errors } = props;
   // console.log(errors.idError);
   return (
@@ -21,4 +21,4 @@ const LoginFormBox = (props) => {
   )
 }
 
-export default LoginFormBox
+export default Login

@@ -12,6 +12,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useState } from 'react';
+import { auth } from '../../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 function Copyright(props) {
   return (
@@ -26,17 +29,32 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme();
+const SignIn = () =>  {
 
-export default function SignIn() {
+  const theme = createTheme();
+  let [ email, setEmail] = useState('');
+  let [ pass, setPass] = useState('');
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+    auth.createUserWithEmailAndPassword(email,pass);
+    // .then(console.log(email,pass));
+
+    // const authUser = useAuthUser()
+    // const isAuthenticated = authUser != null //認証されているかの判定
+    // if (isAuthenticated) {
+    //   return <Route {...props}/>
+    // }else{
+    //   console.log(`ログインしていないユーザーは${props.path}へはアクセスできません`)
+    //   return <Redirect to="/login"/>
+    // }
+  }
+  const ChangeEmail = (event) => {
+      setEmail(event.currentTarget.value);
+    };
+  const ChangePass = (event) => {
+      setPass(event.currentTarget.value);
+    }
 
   return (
     <ThemeProvider theme={theme}>
@@ -66,6 +84,7 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={(event) => ChangeEmail(event)}
             />
             <TextField
               margin="normal"
@@ -76,6 +95,7 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(event) => ChangePass(event)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -106,5 +126,7 @@ export default function SignIn() {
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
-  );
+  )
 }
+
+export default SignIn;
