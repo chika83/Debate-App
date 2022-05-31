@@ -1,10 +1,10 @@
-import React from 'react';
 // import DefaultButton from './DefaultButton';
 // import DefaultForm from './DefaultForm';
 // import FormBool from './FormBool';
+//import  {Link}  from 'react-router-dom';
+import React from 'react';
 import { useAuthContext } from '../../context/AuthContext';
 import { LoginOutlined } from '@mui/icons-material';
-//import { Link } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -21,19 +21,21 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import { auth } from '../../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 const Login = (props) => {
-  //  const { user } = useAuthContext();
+   const { user } = useAuthContext();
   //const theme = createTheme();
   //let [ email, setEmail] = useState('');
   //let [ pass, setPass] = useState('');
-
+  const navigate = useNavigate();
    const handleSubmit = (event) => {
      event.preventDefault();
      const { email, password} = event.target.elements;
     //  auth.createUserWithEmailAndPassword(email,password);
      auth.signInWithEmailAndPassword(email,password)
-     .then(console.log("login"));
+     .then(console.log(auth.user));
+     navigate("/");
    };
 
 //    const ChangeEmail = (event) => {
@@ -124,7 +126,7 @@ const Login = (props) => {
               </div>
               <div>
                 <p>
-                  <Link to={"/register"}>新規登録はこちら</Link>
+                  <Link href="/register" >新規登録はこちら</Link>
                 </p>
               </div>
             {/* </form> */}

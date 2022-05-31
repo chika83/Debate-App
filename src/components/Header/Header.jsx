@@ -13,9 +13,9 @@ const HeaderBox = () => {
   return(
     <div>
       <h1>header</h1>
-    {user
+    {!user
       ?<button onClick={handleLogout}>Logout</button>
-      :<button onClick={handleLogout}>Login</button>
+      :<button >Login</button>
     }
     </div>
   );
