@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styles from "../css/Top.css";
 import Agenda_send from './Agenda_send';
 import { db } from "../../firebase";
+import { BrowserRouter } from 'react-router-dom';
+import HeaderBox from '../Header/Header';
 
 const TopPage = () => {
   const [agendas, setAgendas] = useState([
@@ -35,6 +37,7 @@ const TopPage = () => {
   }, [agendas.id]);
 
   return (
+    // <HeaderBox />
     <div className='content-wrapper'>
       <div className="top-inner">
         <div className="sideber">
