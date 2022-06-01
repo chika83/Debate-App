@@ -1,24 +1,29 @@
-import React from 'react';
-import errorData from './error';
-import './assets/styles/login.css';
+//import React, { useState, useEffect } from 'react';
+import TopPage from './components/Top/TopPage';
+import SignIn from './components/Register/Register';
+//import styles from "./components/css/destyle.css";
+import { AuthProvider } from './context/AuthContext';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './components/Login/Login';
+import HeaderBox from './components/Header/Header';
 
-export default class App extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      id:[],
-      pass:[],
-      sample:"sample表示",
-      error:errorData
-    }
-  }
-  render (){
+function App() {
+
   return (
-    <div className='login-pare'>
-      <div className='login-main-box'>
+    <AuthProvider>
 
+      <div className="App">
+        <BrowserRouter>
+        <HeaderBox />
+          <Routes>
+            <Route exact path="/" element={<TopPage />} />
+            <Route path="/register" element={<SignIn />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </BrowserRouter>
       </div>
-    </div>
-  );
- }
+    </AuthProvider>
+  )
 }
+
+export default App;

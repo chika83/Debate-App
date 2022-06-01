@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+.form-wrapper{
+  max-width: 80%;
+  margin: 0 auto;
+  margin-top: 100px;
+  text-align: center;
+}
+.Agenda_form{
+  width: 100%;
+}
+.Agenda_form label{
+  color: white;
+  display: block;
+  margin-bottom: 30px;
+}
+.Agenda_input{
+  background-color: white;
+  border: solid 1px;
+  height: 40px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.Agenda_textarea{
+  resize: none;
+  height: 160px;
+  width: 100%;
+  background-color: white;
+  border: solid 1px;
+  margin-bottom: 30px;
+  padding: 5px;
+  text-align: left;
+}
+.Agenda_button{
+  background-color: white;
+}
