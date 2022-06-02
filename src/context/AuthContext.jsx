@@ -27,8 +27,12 @@ export function AuthProvider({ children }) {
     };
   }, []);
 
-return (
+  if (loading) {
+    return <p>Now loading...</p>;
+  } else {
+  return (
     <AuthContext.Provider value={value}>
       {!loading && children}
     </AuthContext.Provider>);
+ }
 }

@@ -1,5 +1,5 @@
 import { auth } from '../../firebase';
-import { useNavigate, Navigate, Redirect } from 'react-router-dom';
+import { useNavigate, Navigate, } from 'react-router-dom';
 import { useAuthContext } from '../../context/AuthContext';
 // import  {Link}  from 'react-router-dom';
 const Home = () => {
