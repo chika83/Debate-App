@@ -1,5 +1,6 @@
 import  { Link}   from 'react-router-dom';
 import React from 'react';
+import { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,12 +16,18 @@ import { useNavigate,Navigate } from 'react-router-dom';
 
 const Login = (props) => {
   const navigate = useNavigate();
-   const handleSubmit = (event) => {
+  const [error, setError] = useState('');
+
+   const handleSubmit = async (event) => {
      event.preventDefault();
      const { email, password} = event.target.elements;
-     auth.signInWithEmailAndPassword(email.value,password.value)
-     .then(console.log(email.value,password.value));
-     navigate("/home");
+     try{
+       await auth.signInWithEmailAndPassword(email.value,password.value)
+       .then(console.log(email.value,password.value));
+       navigate("/");
+     }catch(error){
+       setError(error.message);
+     }
     // if (!user) {
     //   return <Navigate to="/login" />;
     // }
@@ -40,6 +47,7 @@ const Login = (props) => {
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
           <LockOutlinedIcon />
         </Avatar>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
         <Typography component="h1" variant="h5">
         LOGIN
         </Typography>

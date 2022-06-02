@@ -7,16 +7,17 @@ const HeaderBox = () => {
   const { user } = useAuthContext();
   const handleLogout = () => {
     auth.signOut();
-    console.log("logout");
     navigate("/login");
   };
+
   return(
     <div>
       <h1>header</h1>
-    {!user
-      ?<button onClick={handleLogout}>Logout</button>
-      :<button >Login</button>
-    }
+      <button >Mypage</button>
+      {user
+        ?<button onClick={handleLogout}>Logout</button>
+        :<button onClick={handleLogout}>Login</button>
+      }
     </div>
   );
 };
