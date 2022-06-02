@@ -6,6 +6,7 @@ import { AuthProvider } from './context/AuthContext';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './components/Login/Login';
 import HeaderBox from './components/Header/Header';
+import Home from './components/Top/Home'
 
 function App() {
 
@@ -14,9 +15,10 @@ function App() {
 
       <div className="App">
         <BrowserRouter>
-        <HeaderBox />
+        {/* <HeaderBox /> */}
           <Routes>
             <Route exact path="/" element={<TopPage />} />
+            <Route exact path="/home" element={<Home />} />
             <Route path="/register" element={<SignIn />} />
             <Route path="/login" element={<Login />} />
           </Routes>

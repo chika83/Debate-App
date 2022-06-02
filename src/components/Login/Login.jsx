@@ -1,7 +1,7 @@
 // import DefaultButton from './DefaultButton';
 // import DefaultForm from './DefaultForm';
 // import FormBool from './FormBool';
-//import  {Link}  from 'react-router-dom';
+import  { Link}   from 'react-router-dom';
 import React from 'react';
 import { useAuthContext } from '../../context/AuthContext';
 import { LoginOutlined } from '@mui/icons-material';
@@ -11,7 +11,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+// import Link2 from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -21,21 +21,24 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import { auth } from '../../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Navigate } from 'react-router-dom';
 
+//const { user } = useAuthContext();
+//const theme = createTheme();
+//let [ email, setEmail] = useState('');
+//let [ pass, setPass] = useState('');
+// const navigate = useNavigate();
 const Login = (props) => {
-   const { user } = useAuthContext();
-  //const theme = createTheme();
-  //let [ email, setEmail] = useState('');
-  //let [ pass, setPass] = useState('');
-  const navigate = useNavigate();
    const handleSubmit = (event) => {
      event.preventDefault();
      const { email, password} = event.target.elements;
     //  auth.createUserWithEmailAndPassword(email,password);
      auth.signInWithEmailAndPassword(email,password)
-     .then(console.log(auth.user));
-     navigate("/");
+     .then(console.log("login"));
+    //  navigate("/home");
+    // if (!user) {
+    //   return <Navigate to="/login" />;
+    // }
    };
 
 //    const ChangeEmail = (event) => {
@@ -113,12 +116,12 @@ const Login = (props) => {
                 >Login</Button>
                 <Grid container>
                   <Grid item xs>
-                    <Link href="#" variant="body2">
+                    <Link to={"#"} >
                       Forgot password?
                     </Link>
                   </Grid>
                   <Grid item>
-                    <Link href="#" variant="body2">
+                    <Link to={"#"} >
                       {"Don't have an account? Sign Up"}
                     </Link>
                   </Grid>
@@ -126,7 +129,7 @@ const Login = (props) => {
               </div>
               <div>
                 <p>
-                  <Link href="/register" >新規登録はこちら</Link>
+                  <Link to={"/register"} >新規登録はこちら</Link>
                 </p>
               </div>
             {/* </form> */}
