@@ -39,22 +39,25 @@
   width: 80%;
 }
 
-/* left-wrap */
-.left-wrap{
+/* side-wrap */
+.side-wrap{
   width: 30%;
   padding: 15px;
+  height: 100%;
+  overflow: auto;
 }
 
 /* center-wrap */
 .center-wrap{
   width: 20%;
-  height: 50%;
+  height: 100%;
   padding: 15px;
   text-align: center;
   background-color: #fff;
 }
 .agenda-area{
-  height: 100%;
+  height: 50%;
+  margin-bottom: 30px;
   border: solid 1px #333;
 }
 .agenda-title{
@@ -66,10 +69,4 @@
 .agenda-text{
   font-size: 0.875rem;
   text-align: left;
-}
-
-/* right-wrap */
-.right-wrap{
-  width: 30%;
-  padding: 15px;
 }

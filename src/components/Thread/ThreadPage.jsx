@@ -40,7 +40,7 @@ const ThreadPage = () => {
     // <HeaderBox />
 
     <div className='content-wrapper'>
-      <div className="left-wrap">
+      <div className="side-wrap">
         <div className="wrap-title">賛成</div>
 
         {/* 一覧でDBから取得した内容を表示 */}
@@ -72,9 +72,10 @@ const ThreadPage = () => {
           <li className='agenda-title'>アジェンダタイトルを表示</li>
           <li className='agenda-text'>アジェンダのテキストを表示</li>
         </ul>
+        {/* Thread_sendエリア */}
       </div>
 
-      <div className="right-wrap">
+      <div className="side-wrap">
         <div className="wrap-title">反対</div>
 
         {/* 一覧でDBから取得した内容を表示 */}
