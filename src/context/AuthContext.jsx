@@ -1,5 +1,6 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 import { auth } from '../firebase';
+import NowLoading from './NowLoading';
 
 const AuthContext = createContext();
 
@@ -28,7 +29,9 @@ export function AuthProvider({ children }) {
   }, []);
 
   if (loading) {
-    return <p>Now loading...</p>;
+    return (
+      <NowLoading />
+    );
   } else {
   return (
     <AuthContext.Provider value={value}>
