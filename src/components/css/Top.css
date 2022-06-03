@@ -29,6 +29,7 @@
   width: 75%;
   background-color: blueviolet;
   border: solid 5px white;
+  overflow: scroll;
 }
 .main-title{
   color: white;

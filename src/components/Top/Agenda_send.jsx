@@ -2,21 +2,23 @@ import React, { useState } from 'react';
 import styles from "../css/Agenda.css";
 import { db } from "../../firebase";
 import firebase from 'firebase/compat/app';
+import { useAuthContext } from '../../context/AuthContext';
 
 const Agenda_send = () => {
 
   const [AgendaTitle, setAgendaTitle] = useState("");
   const [AgendaText, setAgendaText] = useState("");
+  const { user } = useAuthContext();
 
   const sendAgenda = (e) => {
     e.preventDefault();
 
     db.collection("Agenda").add({
+      uid:user.uid,
+      username:user.displayName,
       title:AgendaTitle,
       text:AgendaText,
       timestamp:firebase.firestore.FieldValue.serverTimestamp(),
-      // username:user.displayName,
-      username:"test",
     })
 
     setAgendaTitle("");
