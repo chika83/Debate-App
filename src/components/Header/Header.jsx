@@ -15,6 +15,9 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import { useAuthContext } from '../../context/AuthContext';
+import { useNavigate, Navigate } from 'react-router-dom';
+import { auth } from '../../firebase';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -57,8 +60,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function HeaderBox() {
+  const { user } = useAuthContext();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const navigate = useNavigate();
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -80,6 +85,15 @@ export default function HeaderBox() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const handleLogOut = () => {
+    auth.signOut();
+    navigate("/login");
+  }
+
+  const handleLogIn = () => {
+    navigate("/login");
+  }
+
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -98,7 +112,11 @@ export default function HeaderBox() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      {user ? (
+        <MenuItem onClick={handleLogOut}>Logout</MenuItem>
+      ) : (
+        <MenuItem onClick={handleLogIn}>Login</MenuItem>
+      )}
     </Menu>
   );
 
@@ -173,7 +191,7 @@ export default function HeaderBox() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            Debata
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -187,7 +205,7 @@ export default function HeaderBox() {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
+              <Badge badgeContent={1} color="error">
                 <MailIcon />
               </Badge>
             </IconButton>
@@ -196,7 +214,7 @@ export default function HeaderBox() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={17} color="error">
+              <Badge badgeContent={1} color="error">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
