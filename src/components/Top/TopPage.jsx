@@ -37,7 +37,8 @@ const TopPage = () => {
   }, [agendas.id]);
 
   return (
-    // <HeaderBox />
+    <>
+    <HeaderBox/>
     <div className='content-wrapper'>
       <div className="top-inner">
         <div className="sideber">
@@ -84,6 +85,7 @@ const TopPage = () => {
         </div>
       </div>
     </div>
+  </>
   )
 }
 

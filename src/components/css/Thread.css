@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+.content-wrapper{
+  background-color: #fff;
+  justify-content: space-around;
+  display: flex;
+  width: 100%;
+  height: 80vh;
+}
+
+/* 共通 */
+.wrap-title{
+  background-color: #fff;
+  padding: 50px 15px;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  border: solid 1px #333;
+}
+.comment-area{
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  width: 100%;
+  height: 100px;
+  padding: 15px;
+}
+.comment-area .icon{
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border: solid 1px #333;
+  border-radius: 50%;
+}
+.comment-area .text{
+  border: solid 1px #333;
+  padding: 10px;
+  width: 80%;
+}
+
+/* side-wrap */
+.side-wrap{
+  width: 30%;
+  padding: 15px;
+  height: 100%;
+  overflow: auto;
+}
+
+/* center-wrap */
+.center-wrap{
+  width: 20%;
+  height: 100%;
+  padding: 15px;
+  text-align: center;
+  background-color: #fff;
+}
+.agenda-area{
+  height: 50%;
+  margin-bottom: 30px;
+  border: solid 1px #333;
+}
+.agenda-title{
+  border:none;
+  border-bottom: solid 1px #333;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.agenda-text{
+  font-size: 0.875rem;
+  text-align: left;
+}
