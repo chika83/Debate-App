@@ -44,7 +44,7 @@ const TopPage = () => {
           <h2 className={styles.sideber_title}>ここはサイドバーです。</h2>
           <Agenda_send />
         </div>
-        <div className={styles.main_conten}>
+        <div className={styles.main_content}>
           <h2 className={styles.main_title}>メインコンテンツ</h2>
           <div className={styles.agenda_wrapper}>
 
@@ -76,8 +76,6 @@ const TopPage = () => {
                 }
               </>
             )}
-
-
           </div>
         </div>
       </div>
