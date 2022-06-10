@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from "../css/Thread.module.css";
 import Thread_send from './Thread_send';
 import { db } from "../../firebase";
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter,useLocation } from 'react-router-dom';
 import HeaderBox from '../Header/Header';
 
 const ThreadPage = () => {
@@ -15,26 +15,9 @@ const ThreadPage = () => {
       username: "",
     },
   ]);
-
-  useEffect(() => {
-    const unSub = db
-      .collection("thread")
-      .orderBy("timestamp", "desc")
-      .onSnapshot((snapshot) =>
-        setThreads(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            text: doc.data().text,
-            timestamp: doc.data().timestamp,
-            title: doc.data().title,
-            username: doc.data().username,
-          }))
-        )
-      );
-    return () => {
-      unSub();
-    }
-  }, [threads.id]);
+  const location = useLocation();
+  const [agenda, setAgendaId] = useState(location.state.agenda);
+  // console.log(agenda);
 
   return (
     // <HeaderBox />
@@ -69,8 +52,8 @@ const ThreadPage = () => {
 
       <div className={styles.center_wrap}>
         <ul className={styles.agenda_area}>
-          <li className={styles.agenda_title}>アジェンダタイトルを表示</li>
-          <li className={styles.agenda_text}>アジェンダのテキストを表示</li>
+          <li className={styles.agenda_title}>{agenda.title}</li>
+          <li className={styles.agenda_text}>{agenda.text}</li>
         </ul>
         {/* Thread_sendエリア */}
       </div>

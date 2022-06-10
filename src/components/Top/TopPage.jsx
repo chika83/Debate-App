@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from "../css/Top.module.css";
 import Agenda_send from './Agenda_send';
 import { db } from "../../firebase";
-import { BrowserRouter } from 'react-router-dom';
+import { useNavigate, Navigate, BrowserRouter } from 'react-router-dom';
 import HeaderBox from '../Header/Header';
 
 const TopPage = () => {
@@ -15,6 +15,14 @@ const TopPage = () => {
       username: "",
     },
   ]);
+  const navigate = useNavigate();
+  const handleNavigate = (agenda) => {
+    navigate('/thread', {
+      state: {
+        agenda: agenda,
+      }
+    });
+  };
 
   useEffect(() => {
     const unSub = db
@@ -34,7 +42,7 @@ const TopPage = () => {
     return () => {
       unSub();
     }
-  }, [agendas.id]);
+  }, []);
 
   return (
     // <HeaderBox />
@@ -52,26 +60,34 @@ const TopPage = () => {
               <>
                 {
                   agendas.map((agenda) => (
-                    // <button className={styles.agenda_wrap_btn}>
-                      <div className={styles.agenda_wrap}>
-                        <div className={styles.agenda_left}>
+                    <div className={styles.agenda_wrap}>
+                      <div className={styles.agenda_left}>
+                        <button
+                          className={styles.agenda_wrap_btn}
+                          onClick={() => { handleNavigate(agenda) }}
+                        >
                           <div className={styles.agenda_title}>
                             <p>{ agenda.title }</p>
                           </div>
                           <div className={styles.agenda_totalling}>
                             <p>賛成:1 反対:2 計:3</p>
                           </div>
-                        </div>
-                        <div className={styles.agenda_post}>
+                        </button>
+                      </div>
+                      <div className={styles.agenda_post}>
+                        <button
+                          className={styles.agenda_wrap_btn}
+                          onClick={() => { handleNavigate(agenda) }}
+                        >
                           <p className={styles.agenda_text}>
                             { agenda.text }
                           </p>
                           <p className={styles.text_time}>
                             {new Date(agenda.timestamp?.toDate()).toLocaleString()}
                           </p>
-                        </div>
+                        </button>
                       </div>
-                    // </button>
+                    </div>
                   ))
                 }
               </>
