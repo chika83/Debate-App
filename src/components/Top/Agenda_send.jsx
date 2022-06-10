@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from "../css/Agenda.css";
+import styles from "../css/Agenda.module.css";
 import { db } from "../../firebase";
 import firebase from 'firebase/compat/app';
 import { useNavigate, Navigate, } from 'react-router-dom';
@@ -35,22 +35,22 @@ const Agenda_send = () => {
   }
 
   return (
-    <div className="form-wrapper">
+    <div className={styles.form_wrapper}>
       <form onSubmit={sendAgenda}>
-        <div className="Agenda_form">
+        <div className={styles.agenda_form}>
           <label>新しいスレッドを投稿する</label>
           <input
-            className="Agenda_input"
+            className={styles.agenda_input}
             type="text"
             value={AgendaTitle}
             onChange={(e) => setAgendaTitle(e.target.value)}
             required
             />
         </div>
-        <div className="Agenda_form">
+        <div className={styles.agenda_form}>
           <label>詳細を記入</label>
           <textarea
-            className="Agenda_textarea"
+            className={styles.agenda_textarea}
             type="text"
             value={AgendaText}
             onChange={(e) => setAgendaText(e.target.value)}
@@ -62,7 +62,7 @@ const Agenda_send = () => {
         <button
           type="submit"
           disabled={!AgendaTitle}
-          className="Agenda_button"
+          className={styles.agenda_button}
           >
           投稿
         </button>

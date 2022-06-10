@@ -1,11 +1,11 @@
 @charset "utf-8";
 
-.content-wrapper{
+.content_wrapper{
   width: 100%;
   height: 90vh;
   background-color: blueviolet;
 }
-.top-inner{
+.top_inner{
   height: 100%;
   display: flex;
   justify-content: space-between;
@@ -19,73 +19,76 @@
   background-color: blueviolet;
   border: solid 5px white;
 }
-.sideber-title{
+.sideber_title{
   color: white;
   font-size: 1.5rem;
 }
 
 /* main-content */
-.main-content{
+.main_content{
   width: 75%;
   background-color: blueviolet;
   border: solid 5px white;
   overflow: scroll;
 }
-.main-title{
+.main_title{
   color: white;
   font-size: 1.5rem;
   margin-bottom: 20px;
 }
-.agenda-wrapper{
+.agenda_wrapper{
   width: 90%;
   margin: 0 auto;
 }
-.agenda-wrap{
+.agenda_wrap-btn{
+  width: 100%;
+}
+.agenda_wrap{
   background-color: aliceblue;
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
 }
 
-.agenda-left{
+.agenda_left{
   width: 30%;
   height: 100%;
   text-align: center;
 }
-.agenda-title{
+.agenda_title{
   border: solid 2px plum;
   padding: 30px;
 }
-.agenda-left a{
+.agenda_left a{
   display: block;
   height: 100%;
   width: 100%;
 }
-.agenda-totalling{
+.agenda_totalling{
   height: 30px;
   border: solid 2px plum;
   padding: 15px;
 }
-.agenda-totalling p{
+.agenda_totalling p{
   line-height: 1px;
 }
 
-.agenda-post{
+.agenda_post{
   position: relative;
   width: 70%;
   border: solid 2px plum;
   padding: 5px;
   font-size: 1rem;
 }
-.agenda-text{
+.agenda_text{
   padding: 20px;
 }
-.agenda-post a{
+.agenda_post a{
   display: block;
   height: 100%;
   width: 100%;
 }
-.text-time{
+.text_time{
   position: absolute;
   right: 2px;
   bottom: 5px;

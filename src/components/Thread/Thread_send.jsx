@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from "../css/Thread_send.css";
+import styles from "../css/Thread_send.module.css";
 import { db } from "../../firebase";
 import firebase from 'firebase/compat/app';
 import { useNavigate, Navigate, } from 'react-router-dom';
@@ -35,22 +35,22 @@ const Thread_send = () => {
   }
 
   return (
-    <div className="form-wrapper">
+    <div className={styles.form_wrapper}>
       <form onSubmit={sendThread}>
-        <div className="Thread_form">
+        <div className={styles.Thread_form}>
           <label>新しいスレッドを投稿する</label>
           <input
-            className="Thread_input"
+            className={styles.Thread_input}
             type="text"
             value={ThreadTitle}
             onChange={(e) => setThreadTitle(e.target.value)}
             required
             />
         </div>
-        <div className="Thread_form">
+        <div className={styles.Thread_form}>
           <label>詳細を記入</label>
           <textarea
-            className="Thread_textarea"
+            className={styles.Thread_textarea}
             type="text"
             value={ThreadText}
             onChange={(e) => setThreadText(e.target.value)}
@@ -62,7 +62,7 @@ const Thread_send = () => {
         <button
           type="submit"
           disabled={!ThreadTitle}
-          className="Thread_button"
+          className={styles.Thread_button}
           >
           投稿
         </button>

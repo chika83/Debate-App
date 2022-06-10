@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from "../css/Top.css";
+import styles from "../css/Top.module.css";
 import Agenda_send from './Agenda_send';
 import { db } from "../../firebase";
 import { BrowserRouter } from 'react-router-dom';
@@ -38,42 +38,40 @@ const TopPage = () => {
 
   return (
     // <HeaderBox />
-    <div className='content-wrapper'>
-      <div className="top-inner">
-        <div className="sideber">
-          <h2 className="sideber-title">ここはサイドバーです。</h2>
+    <div className={styles.content_wrapper}>
+      <div className={styles.top_inner}>
+        <div className={styles.sideber}>
+          <h2 className={styles.sideber_title}>ここはサイドバーです。</h2>
           <Agenda_send />
         </div>
-        <div className="main-content">
-          <h2 className="main-title">メインコンテンツ</h2>
-          <div className="agenda-wrapper">
+        <div className={styles.main_conten}>
+          <h2 className={styles.main_title}>メインコンテンツ</h2>
+          <div className={styles.agenda_wrapper}>
 
             {agendas[0]?.id && (
               <>
                 {
                   agendas.map((agenda) => (
-                    <div className="agenda-wrap">
-                      <div className="agenda-left">
-                        <a href='#'>
-                          <div className="agenda-title">
+                    // <button className={styles.agenda_wrap_btn}>
+                      <div className={styles.agenda_wrap}>
+                        <div className={styles.agenda_left}>
+                          <div className={styles.agenda_title}>
                             <p>{ agenda.title }</p>
                           </div>
-                          <div className="agenda-totalling">
+                          <div className={styles.agenda_totalling}>
                             <p>賛成:1 反対:2 計:3</p>
                           </div>
-                        </a>
-                      </div>
-                      <div className="agenda-post">
-                        <a href='#'>
-                          <p className="agenda-text">
+                        </div>
+                        <div className={styles.agenda_post}>
+                          <p className={styles.agenda_text}>
                             { agenda.text }
                           </p>
-                          <p className="text-time">
+                          <p className={styles.text_time}>
                             {new Date(agenda.timestamp?.toDate()).toLocaleString()}
                           </p>
-                        </a>
+                        </div>
                       </div>
-                    </div>
+                    // </button>
                   ))
                 }
               </>

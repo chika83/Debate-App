@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from "../css/Thread.css";
+import styles from "../css/Thread.module.css";
 import Thread_send from './Thread_send';
 import { db } from "../../firebase";
 import { BrowserRouter } from 'react-router-dom';
@@ -39,67 +39,62 @@ const ThreadPage = () => {
   return (
     // <HeaderBox />
 
-    <div className='content-wrapper'>
-      <div className="side-wrap">
-        <div className="wrap-title">賛成</div>
+    <div className={styles.content_wrapper}>
+      <div className={styles.side_wrap}>
+        <div className={styles.wrap_title}>賛成</div>
 
         {/* 一覧でDBから取得した内容を表示 */}
-        <ul className="comment-area">
-          <li class="icon">img</li>
-          <li class="text">コメントを表示</li>
+        <ul className={styles.comment_area}>
+          <li className={styles.icon}>img</li>
+          <li className={styles.text}>コメントを表示</li>
         </ul>
-        <ul className="comment-area">
-          <li class="icon">img</li>
-          <li class="text">コメントを表示</li>
+        <ul className={styles.comment_area}>
+          <li className={styles.icon}>img</li>
+          <li className={styles.text}>コメントを表示</li>
         </ul>
-        <ul className="comment-area">
-          <li class="icon">img</li>
-          <li class="text">コメントを表示</li>
+        <ul className={styles.comment_area}>
+          <li className={styles.icon}>img</li>
+          <li className={styles.text}>コメントを表示</li>
         </ul>
-        <ul className="comment-area">
-          <li class="icon">img</li>
-          <li class="text">コメントを表示</li>
+        <ul className={styles.comment_area}>
+          <li className={styles.icon}>img</li>
+          <li className={styles.text}>コメントを表示</li>
         </ul>
-        <ul className="comment-area">
-          <li class="icon">img</li>
-          <li class="text">コメントを表示</li>
+        <ul className={styles.comment_area}>
+          <li className={styles.icon}>img</li>
+          <li className={styles.text}>コメントを表示</li>
         </ul>
 
       </div>
 
-      <div className="center-wrap">
-        <ul className="agenda-area">
-          <li className='agenda-title'>アジェンダタイトルを表示</li>
-          <li className='agenda-text'>アジェンダのテキストを表示</li>
+      <div className={styles.center_wrap}>
+        <ul className={styles.agenda_area}>
+          <li className={styles.agenda_title}>アジェンダタイトルを表示</li>
+          <li className={styles.agenda_text}>アジェンダのテキストを表示</li>
         </ul>
         {/* Thread_sendエリア */}
       </div>
 
-      <div className="side-wrap">
-        <div className="wrap-title">反対</div>
+      <div className={styles.side_wrap}>
+        <div className={styles.wrap_title}>反対</div>
 
         {/* 一覧でDBから取得した内容を表示 */}
-        <ul className="comment-area">
-          <li class="icon">img</li>
-          <li class="text">コメントを表示</li>
+        <ul className={styles.comment_area}>
+          <li className={styles.icon}>img</li>
+          <li className={styles.text}>コメントを表示</li>
         </ul>
-        <ul className="comment-area">
-          <li class="icon">img</li>
-          <li class="text">コメントを表示</li>
+        <ul className={styles.comment_area}>
+          <li className={styles.icon}>img</li>
+          <li className={styles.text}>コメントを表示</li>
         </ul>
-        <ul className="comment-area">
-          <li class="icon">img</li>
-          <li class="text">コメントを表示</li>
+        <ul className={styles.comment_area}>
+          <li className={styles.icon}>img</li>
+          <li className={styles.text}>コメントを表示</li>
         </ul>
-        <ul className="comment-area">
-          <li class="icon">img</li>
-          <li class="text">コメントを表示</li>
+        <ul className={styles.comment_area}>
+          <li className={styles.icon}>img</li>
+          <li className={styles.text}>コメントを表示</li>
         </ul>
-        <ul className="comment-area">
-          <li class="icon">img</li>
-          <li class="text">コメントを表示</li>
-        </ul>
-
       </div>
     </div>
   )
