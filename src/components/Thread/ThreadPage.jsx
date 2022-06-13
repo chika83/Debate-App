@@ -26,7 +26,6 @@ const ThreadPage = () => {
       <div className={styles.side_wrap}>
         <div className={styles.wrap_title}>賛成</div>
 
-        {/* 一覧でDBから取得した内容を表示 */}
         <ul className={styles.comment_area}>
           <li className={styles.icon}>img</li>
           <li className={styles.text}>コメントを表示</li>
@@ -55,13 +54,12 @@ const ThreadPage = () => {
           <li className={styles.agenda_title}>{agenda.title}</li>
           <li className={styles.agenda_text}>{agenda.text}</li>
         </ul>
-        {/* Thread_sendエリア */}
+        <Thread_send />
       </div>
 
       <div className={styles.side_wrap}>
         <div className={styles.wrap_title}>反対</div>
 
-        {/* 一覧でDBから取得した内容を表示 */}
         <ul className={styles.comment_area}>
           <li className={styles.icon}>img</li>
           <li className={styles.text}>コメントを表示</li>
