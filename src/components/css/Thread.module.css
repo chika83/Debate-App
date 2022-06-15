@@ -11,12 +11,16 @@
 /* 共通 */
 .wrap_title{
   background-color: #fff;
+  width: 100%;
   padding: 50px 15px;
   text-align: center;
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 30px;
   border: solid 1px #333;
+}
+.wrap_title:hover{
+  background-color: blueviolet;
 }
 .comment_area{
   display: flex;
