@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useCollection, useDocument } from "react-firebase-hooks/firestore";
 import styles from "../css/Thread.module.css";
 import Thread_send from './Thread_send';
 import { db } from "../../firebase";
