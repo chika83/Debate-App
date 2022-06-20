@@ -43,7 +43,7 @@ const ThreadPage = () => {
           console.log("重複なし");
           // 1のコレクションにuidを入れる
           // judgeに1を入れる
-          db.collection("Agenda").doc(agenda.id).collection("1").add({
+          db.collection("Agenda").doc(agenda.id).collection("judge").doc("1").set({
             uid: user.uid,
           });
           setJudge(1);
@@ -63,7 +63,7 @@ const ThreadPage = () => {
           console.log("重複なし");
           // 0のコレクションにuidを入れる
           // judgeに0を入れる
-          db.collection("Agenda").doc(agenda.id).collection("0").add({
+          db.collection("Agenda").doc(agenda.id).collection("judge").doc("0").set({
             uid: user.uid,
           });
           setJudge(0);
@@ -72,22 +72,30 @@ const ThreadPage = () => {
     }
   }
 
+  // 一応賛成は判定できた
+  // 反対も同じようにやるとuseDocumentは同時にできませんみたいなエラーでる
+  // レンダリングの中に入れることもできないみたいで微妙
+  // const ReadDb = () => {
+    const [docDetails, loading, error] = useDocument(
+      db.collection("Agenda")
+        .doc(agenda.id)
+        .collection("judge")
+        .doc("1")
+    );
+    const positive_data = [docDetails?.data().uid];
+    const positive_data_check = positive_data.includes(user.uid);
+    console.log(positive_data_check);
+
+    if (positive_data_check) {
+      setJudge(1);
+    }
+  // ReadDb();
+
   useEffect(() => {
 
     // レンダリング時ユーザーが賛成派なのか反対派なのかどちらでもないのかを判定したい
     // DBにユーザー情報があるかを照合して、状態をsetJudgeに入れたい
 
-    const db_positive = db.collection("Agenda").doc(agenda.id).collection("1").doc(user.uid).get();
-    const db_negative = db.collection("Agenda").doc(agenda.id).collection("0").doc(user.uid).get();
-    // console.log(db_positive, db_negative);
-
-    // uid情報が拾えない、てか拾えてるかわかんない
-    if (db_positive != null) {
-      setJudge(1);
-    }
-    if (db_negative != null) {
-      setJudge(0);
-    }
     console.log(judge);
 
   }, []);
